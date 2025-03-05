@@ -5,7 +5,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '40 4 * * 2'  # 4:40 UTC Tuesday. 1 day after Bazzite
+    - cron: '40 8 * * 1'  # 8:40 UTC Monday. 4 hours after Bazzite
   push:
     branches:
       - main
