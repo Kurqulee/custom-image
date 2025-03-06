@@ -28,6 +28,10 @@ dnf5 -y install trivalent-subresource-filter
 dnf5 -y install virt-manager
 dnf5 -y install emacs
 
+# will probably break in Fedora 42
+dnf5 -y install gnome-shell-extension-pop-shell
+
+
 #### Example for enabling a System Unit File
 
 # systemctl enable podman.socket
