@@ -19,14 +19,12 @@ set -ouex pipefail
 # enable repos
 dnf5 -y config-manager addrepo --overwrite --from-repofile=https://repo.secureblue.dev/secureblue.repo
 dnf5 -y copr enable secureblue/trivalent
-dnf5 -y config-manager addrepo --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 
 # install packages
 # TODO: replace virt-manager system package with flatpak once USB drives can be passed through
 # TODO: Look into making emacs a sysext once Fedora 42 lands
 dnf5 -y install trivalent
 dnf5 -y install trivalent-subresource-filter
-dnf5 -y install mullvad-vpn
 dnf5 -y install virt-manager
 dnf5 -y install emacs
 
