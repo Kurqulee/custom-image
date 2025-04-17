@@ -18,21 +18,18 @@ set -ouex pipefail
 
 # enable repos
 dnf5 -y config-manager addrepo --overwrite --from-repofile=https://repo.secureblue.dev/secureblue.repo
-dnf5 -y config-manager addrepo --overwrite --from-repofile=https://repository.mullvad.net/rpm/stable/mullvad.repo
 dnf5 -y copr enable secureblue/trivalent
 
 # install packages
 dnf5 install -y \
 	trivalent \
 	trivalent-subresource-filter \
-	mullvad-vpn \
 	emacs
 
 # disable repos
 dnf5 -y copr disable secureblue/trivalent
 dnf5 -y config-manager setopt secureblue.enabled=0
-dnf5 -y config-manager setopt mullvad-stable.enabled=0
 
 #### Example for enabling a System Unit File
 
-systemctl enable mullvad-daemon.service
+# systemctl enable podman.socket
