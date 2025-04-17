@@ -8,5 +8,6 @@ dnf5 clean all
 rm -rf /tmp/*
 
 # Cleanup /var
-rm -rf /var
-mkdir -p /var
+# dsabled because it caused an error
+# rm -rf /var
+# mkdir -p /var
