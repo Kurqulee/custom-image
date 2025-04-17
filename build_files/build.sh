@@ -25,6 +25,7 @@ dnf5 -y copr enable secureblue/trivalent
 dnf5 install -y \
 	trivalent \
 	trivalent-subresource-filter \
+	mullvad-vpn \
 	emacs
 
 # disable repos
@@ -34,4 +35,4 @@ dnf5 -y config-manager setopt mullvad-stable.enabled=0
 
 #### Example for enabling a System Unit File
 
-# systemctl enable podman.socket
+systemctl enable mullvad-daemon.service
