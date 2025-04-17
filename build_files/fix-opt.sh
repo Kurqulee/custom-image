@@ -1,6 +1,6 @@
-#!/usr/bin/bash
+#!/bin/bash
 # Taken from ublue-os/bazzite-dx
-set -euo pipefail
+set -ouex pipefail
 
 # Move directories from /var/opt to /usr/lib/opt
 for dir in /var/opt/*/; do
