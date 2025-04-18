@@ -1,3 +1,11 @@
+Repository for my custom [Fedora](https://fedoraproject.org) Atomic images using [Universal Blue's](https://universal-blue.org) images (linked below) and their [image template](https://github.com/ublue-os/image-template) as a base. I build two images. One for my desktop (bazzite-gnome-nvidia-open:stable), and one for my laptop (bluefin-dx:stable).
+
+Currently I make the same customizations for both images:
+- I install [Trivalent](https://github.com/secureblue/Trivalent) from [Secureblue](https://secureblue.dev/) (this is an unsupported installation)
+- I install [Emacs](https://www.gnu.org/software/emacs/) from Fedora's repos
+
+Original readme follows
+
 # image-template
 
 # Purpose
