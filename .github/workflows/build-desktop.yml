@@ -11,6 +11,7 @@ on:
       - main
     paths-ignore:
       - '**/README.md'
+      - '**/Containerfile-laptop'
   workflow_dispatch:
 
 env:
