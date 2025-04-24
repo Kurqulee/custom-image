@@ -24,6 +24,7 @@ dnf5 -y copr enable secureblue/trivalent
 dnf5 install -y \
 	trivalent \
 	trivalent-subresource-filter \
+	flatpost \
 	emacs
 
 # disable repos
