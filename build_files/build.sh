@@ -24,7 +24,6 @@ dnf5 -y copr enable secureblue/trivalent
 dnf5 install -y \
 	trivalent \
 	trivalent-subresource-filter \
-	gtk-murrine-engine \
 	emacs
 
 dnf5 --enablerepo="terra" install -y flatpost
