@@ -26,8 +26,6 @@ dnf5 install -y \
 	trivalent-subresource-filter \
 	emacs
 
-dnf5 --enablerepo="terra" install -y flatpost
-
 # disable repos
 dnf5 -y copr disable secureblue/trivalent
 dnf5 -y config-manager setopt secureblue.enabled=0
