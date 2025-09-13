@@ -23,8 +23,7 @@ dnf5 -y copr enable secureblue/trivalent
 # install packages
 dnf5 install -y \
 	trivalent \
-	trivalent-subresource-filter \
-	emacs
+	trivalent-subresource-filter
 
 # disable repos
 dnf5 -y copr disable secureblue/trivalent
