@@ -23,7 +23,8 @@ dnf5 -y copr enable secureblue/trivalent
 # install packages
 dnf5 install -y \
 	trivalent \
-	trivalent-subresource-filter
+	trivalent-subresource-filter \
+	webkit2gtk4.1
 
 # disable repos
 dnf5 -y copr disable secureblue/trivalent

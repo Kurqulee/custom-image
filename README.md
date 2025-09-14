@@ -1,7 +1,8 @@
 Repository for my custom [Fedora](https://fedoraproject.org) Atomic images using [Universal Blue's](https://universal-blue.org) images (linked below) and their [image template](https://github.com/ublue-os/image-template) as a base. I build two images. One for my desktop (bazzite-dx-nvidia-gnome:stable), and one for my laptop (bluefin-dx:stable).
 
-Currently I make the same customization for both images:
+Currently I make the same customizations for both images:
 - I install [Trivalent](https://github.com/secureblue/Trivalent) from [Secureblue](https://secureblue.dev/) (this is an unsupported installation)
+- I install webkit2gtk4.1 form Fedora's repos so that the [Lem](https://github.com/lem-project/lem) appimage will work (TODO: yeet the appimage)
 
 Original readme follows
 
