@@ -31,6 +31,7 @@ dnf5 -y copr disable secureblue/trivalent
 dnf5 -y config-manager setopt secureblue.enabled=0
 
 # Needed symlink for Lem's AppImage
+mkdir -p /usr/lib/x86_64-linux-gnu
 ln -s /usr/libexec/webkit2gtk-4.1 /usr/lib/x86_64-linux-gnu/
 
 #### Example for enabling a System Unit File
