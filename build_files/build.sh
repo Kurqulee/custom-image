@@ -23,11 +23,15 @@ dnf5 -y copr enable secureblue/trivalent
 # install packages
 dnf5 install -y \
 	trivalent \
-	trivalent-subresource-filter
+	trivalent-subresource-filter \
+	webkit2gtk4.1
 
 # disable repos
 dnf5 -y copr disable secureblue/trivalent
 dnf5 -y config-manager setopt secureblue.enabled=0
+
+# Needed symlink for Lem's AppImage
+ln -s /usr/libexec/webkit2gtk-4.1 /usr/lib/x86_64-linux-gnu/
 
 #### Example for enabling a System Unit File
 
