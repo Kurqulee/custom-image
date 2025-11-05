@@ -36,10 +36,10 @@ bash "${PWD}/installselinuxpolicies.sh"
 echo "Cleaning up build package 'selinux-policy-devel' & it's dependencies"
 dnf5 -y remove selinux-policy-devel
 
-echo "Assure that network sandbox is always disabled by default (to ensure that login data remains)"
-echo "https://github.com/fedora-silverblue/issue-tracker/issues/603"
-echo -e '\nCHROMIUM_FLAGS+=" --disable-features=NetworkServiceSandbox"' >> /etc/trivalent/trivalent.conf
+#echo "Assure that network sandbox is always disabled by default (to ensure that login data remains)"
+#echo "https://github.com/fedora-silverblue/issue-tracker/issues/603"
+#echo -e '\nCHROMIUM_FLAGS+=" --disable-features=NetworkServiceSandbox"' >> /etc/trivalent/trivalent.conf
 
-echo "Enable middle-click scrolling by default"
-sed -i '/CHROMIUM_FLAGS+=" --enable-features=\$FEATURES"/d' /etc/trivalent/trivalent.conf
-echo -e '\nFEATURES+=",MiddleClickAutoscroll"\nCHROMIUM_FLAGS+=" --enable-features=$FEATURES"' >> /etc/trivalent/trivalent.conf
+#echo "Enable middle-click scrolling by default"
+#sed -i '/CHROMIUM_FLAGS+=" --enable-features=\$FEATURES"/d' /etc/trivalent/trivalent.conf
+#echo -e '\nFEATURES+=",MiddleClickAutoscroll"\nCHROMIUM_FLAGS+=" --enable-features=$FEATURES"' >> /etc/trivalent/trivalent.conf
