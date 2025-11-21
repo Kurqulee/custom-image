@@ -39,13 +39,10 @@ dnf -y install \
     brightnessctl \
     cava \
     chezmoi \
-    greetd \
-    greetd-selinux \
     tuigreet \
     udiskie \
     webp-pixbuf-loader \
     wlsunset \
-    xwayland-satellite
 #rm -rf /usr/share/doc/just
 
 dnf install -y --setopt=install_weak_deps=False \
