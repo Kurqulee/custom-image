@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -x
+
+LOCKING_COMMAND=""
+
+if systemctl is-active --quiet --user dms ; then
+	LOCKING_COMMAND="dms ipc call lock lock"
+elif systemctl is-active --quiet --user noctalia ; then
+	LOCKING_COMMAND="qs -c /usr/share/zirconium/noctalia-shell ipc call lockScreen lock"
+fi
+
+swayidle -w timeout 601 'niri msg action power-off-monitors' timeout 600 "${LOCKING_COMMAND}" before-sleep "${LOCKING_COMMAND}"
