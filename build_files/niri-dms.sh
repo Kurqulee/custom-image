@@ -48,7 +48,6 @@ dnf -y install \
 dnf install -y --setopt=install_weak_deps=False \
     kf6-kirigami \
     qt6ct \
-    polkit-kde \
     plasma-breeze \
     kf6-qqc2-desktop-style
     
@@ -77,6 +76,8 @@ systemctl enable --global swayidle.service
 systemctl enable --global udiskie.service
 
 git clone "https://github.com/zirconium-dev/zdots.git" /usr/share/zirconium/zdots
+sed -i 's/"footclient"/"ghostty" "+new-window"/g' /usr/share/zirconium/zdots/dot_config/niri/config.kdl
+sed -i 's/"foot"/"ghostty"/g' /usr/share/zirconium/zdots/dot_config/niri/config.kdl
 install -d /etc/niri/
 cp -f /usr/share/zirconium/zdots/dot_config/niri/config.kdl /etc/niri/config.kdl
 file /etc/niri/config.kdl | grep -F -e "empty" -v
