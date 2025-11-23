@@ -22,7 +22,8 @@ dnf -y \
     dms \
     dms-cli \
     dms-greeter \
-    dgop
+    dgop \
+    dsearch
     
 dnf -y copr enable scottames/ghostty
 dnf -y copr disable scottames/ghostty
