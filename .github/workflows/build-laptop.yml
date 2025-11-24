@@ -63,7 +63,7 @@ jobs:
           # E.G: 2022-02-08T15:38:15Z'
           # https://artifacthub.io/docs/topics/repositories/container-images/
           # https://linux.die.net/man/1/date
-	  echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
+          echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
 
       # Image metadata for https://artifacthub.io/ - This is optional but is highly recommended so we all can get a index of all the custom images
       # The metadata by itself is not going to do anything, you choose if you want your image to be on ArtifactHub or not.
@@ -99,7 +99,7 @@ jobs:
           sep-annotations: " "
 
       - name: Build Image
-	id: build_image
+        id: build_image
         uses: redhat-actions/buildah-build@7a95fa7ee0f02d552a32753e7414641a04307056 # v2
         with:
           containerfiles: |
@@ -115,26 +115,26 @@ jobs:
       # This does not make your image faster to download, just provides better resumability and fixes a few errors.
       # Documentation for Rechunk is provided on their github repository at https://github.com/hhd-dev/rechunk
       # You can enable it by uncommenting the following lines:
-      #- name: Run Rechunker
-      #  id: rechunk
-      #  uses: hhd-dev/rechunk@5fbe1d3a639615d2548d83bc888360de6267b1a2 # v1.2.4
-      #  with:
-      #    rechunk: 'ghcr.io/hhd-dev/rechunk:v1.2.4'
-      #    ref: "localhost/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
-      #    prev-ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
-      #    skip_compression: true
-      #    version: ${{ env.CENTOS_VERSION }}
-      #    labels: ${{ steps.metadata.outputs.labels }} # Rechunk strips out all the labels during build, this needs to be reapplied here with newline separator
+       #- name: Run Rechunker
+        # id: rechunk
+         #uses: hhd-dev/rechunk@5fbe1d3a639615d2548d83bc888360de6267b1a2 # v1.2.4
+         #with:
+          # rechunk: 'ghcr.io/hhd-dev/rechunk:v1.2.4'
+           #ref: "localhost/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
+           #prev-ref: "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.DEFAULT_TAG }}"
+           #skip_compression: true
+           #version: ${{ env.CENTOS_VERSION }}
+           #labels: ${{ steps.metadata.outputs.labels }} # Rechunk strips out all the labels during build, this needs to be reapplied here with newline separator
 
       # This is necessary so that the podman socket can find the rechunked image on its storage
-      #- name: Load in podman and tag
-      #  id: generate-tags
-      #  run: |
-      #    IMAGE=$(podman pull ${{ steps.rechunk.outputs.ref }})
-      #    sudo rm -rf ${{ steps.rechunk.outputs.output }}
-      #    for tag in ${{ steps.metadata.outputs.tags }}; do
-      #      podman tag $IMAGE ${{ env.IMAGE_NAME }}:$tag
-      #    done
+       #- name: Load in podman and tag
+        # id: generate-tags
+         #run: |
+          # IMAGE=$(podman pull ${{ steps.rechunk.outputs.ref }})
+           #sudo rm -rf ${{ steps.rechunk.outputs.output }}
+           #for tag in ${{ steps.metadata.outputs.tags }}; do
+            # podman tag $IMAGE ${{ env.IMAGE_NAME }}:$tag
+           #done
 
       # These `if` statements are so that pull requests for your custom images do not make it publish any packages under your name without you knowing
       # They also check if the runner is on the default branch so that things like the merge queue (if you enable it), are going to work
