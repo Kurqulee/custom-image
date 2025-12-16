@@ -22,14 +22,12 @@ dnf -y \
     dms \
     dms-cli \
     dms-greeter \
-    dgop \
-    dsearch
+    dgop
 
 dnf -y copr enable zirconium/packages
 dnf -y copr disable zirconium/packages
 dnf -y --enablerepo copr:copr.fedorainfracloud.org:zirconium:packages install \
-    matugen \
-    cliphist
+    matugen
 
 dnf -y remove \
     alacritty
@@ -55,10 +53,7 @@ cat /etc/pam.d/greetd
 add_wants_niri() {
     sed -i "s/\[Unit\]/\[Unit\]\nWants=$1/" "/usr/lib/systemd/user/niri.service"
 }
-add_wants_niri cliphist.service
-add_wants_niri swayidle.service
 add_wants_niri udiskie.service
-add_wants_niri xwayland-satellite.service
 cat /usr/lib/systemd/user/niri.service
 
 systemctl disable gdm
@@ -67,12 +62,10 @@ systemctl enable greetd
 systemctl enable --global chezmoi-init.service
 systemctl enable --global chezmoi-update.timer
 systemctl enable --global dms.service
-systemctl enable --global cliphist.service
 systemctl enable --global gnome-keyring-daemon.socket
 systemctl enable --global gnome-keyring-daemon.service
 systemctl enable --global swayidle.service
 systemctl enable --global udiskie.service
-systemctl enable --global xwayland-satellite.service
 
 git clone "https://github.com/zirconium-dev/zdots.git" /usr/share/zirconium/zdots
 sed -i 's/"footclient"/"ptyxis" "--new-window"/g' /usr/share/zirconium/zdots/dot_config/niri/config.kdl
